@@ -1,4 +1,66 @@
-<!DOCTYPE html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href]');
+            
+            links.forEach(link => {
+                const tooltip = link.querySelector('.tooltip');
+                if (!tooltip) return;
+                
+                let tooltipOpen = false;
+                
+                // Handle touch devices
+                link.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    
+                    if (!tooltipOpen) {
+                        // First touch: show tooltip
+                        closeAllTooltips();
+                        tooltip.style.visibility = 'visible';
+                        tooltip.style.opacity = '1';
+                        tooltipOpen = true;
+                    } else {
+                        // Second touch: navigate to link
+                        window.open(this.href, '_blank');
+                    }
+                });
+                
+                // Handle tooltip click to navigate
+                tooltip.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    window.open(link.href, '_blank');
+                });
+                
+                // Prevent link navigation on first touch
+                link.addEventListener('click', function(e) {
+                    if (tooltipOpen && 'ontouchstart' in window) {
+                        e.preventDefault();
+                    }
+                });
+            });
+            
+            // Close tooltips when tapping outside
+            document.addEventListener('touchstart', function(e) {
+                if (!e.target.closest('.tooltip') && !e.target.closest('a[href]')) {
+                    closeAllTooltips();
+                }
+            });
+            
+            function closeAllTooltips() {
+                const allTooltips = document.querySelectorAll('.tooltip');
+                const allLinks = document.querySelectorAll('a[href]');
+                
+                allTooltips.forEach(tooltip => {
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.opacity = '0';
+                });
+                
+                allLinks.forEach(link => {
+                    link.tooltipOpen = false;
+                });
+            }
+        });
+    </script><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
