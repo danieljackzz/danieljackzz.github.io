@@ -10,7 +10,7 @@
             color: #ffffff;
             font-family: 'Times New Roman', serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -19,8 +19,10 @@
         
         .container {
             max-width: 600px;
+            width: 100%;
             text-align: left;
             line-height: 1.6;
+            padding: 0 20px;
         }
         
         h1 {
@@ -94,6 +96,17 @@
             border-color: #2a2a2a transparent transparent transparent;
         }
         
+        .tooltip-down {
+            bottom: auto;
+            top: 125%;
+        }
+        
+        .tooltip-down::after {
+            top: auto;
+            bottom: 100%;
+            border-color: transparent transparent #2a2a2a transparent;
+        }
+        
         .tooltip-image {
             width: 100%;
             height: 160px;
@@ -106,6 +119,13 @@
         }
         
         a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Touch devices - show tooltip on tap/click */
+        a:focus .tooltip,
+        a:active .tooltip {
             visibility: visible;
             opacity: 1;
         }
@@ -131,24 +151,120 @@
             color: #aaaaaa;
             font-size: 0.85em;
         }
+        
+        /* Mobile and Tablet Responsive Design */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+                align-items: flex-start;
+                padding-top: 40px;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+                text-align: center;
+            }
+            
+            .degree {
+                text-align: center;
+                font-size: 0.9em;
+            }
+            
+            .section-title {
+                font-size: 1.1em;
+                margin-top: 1.5em;
+            }
+            
+            .experience-item {
+                font-size: 0.95em;
+                margin-bottom: 0.8em;
+            }
+            
+            .contact {
+                text-align: center;
+                margin-top: 2em;
+            }
+            
+            .tooltip {
+                width: 280px;
+                max-width: 90vw;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .tooltip-image {
+                height: 140px;
+            }
+            
+            .tooltip-content {
+                padding: 12px;
+            }
+            
+            /* Make tooltips appear below on mobile to avoid viewport issues */
+            .tooltip:not(.tooltip-down) {
+                bottom: auto;
+                top: 125%;
+            }
+            
+            .tooltip:not(.tooltip-down)::after {
+                top: auto;
+                bottom: 100%;
+                border-color: transparent transparent #2a2a2a transparent;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .degree {
+                font-size: 0.85em;
+            }
+            
+            .experience-item {
+                font-size: 0.9em;
+            }
+            
+            .tooltip {
+                width: 260px;
+                font-size: 0.85em;
+            }
+            
+            .tooltip-image {
+                height: 130px;
+            }
+            
+            .tooltip-content {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Daniel Jackson</h1>
-        <div class="degree">Flower Mound High School, TX | Grade: 3.98 </div>
+        <div class="degree">Flower Mound High School, TX | Grade: 3.98 | SAT: 1560</div>
         
         <div class="section-title">Present</div>
-        <div class="experience-item">Research Assistant @ <a href="https://www.kimecl.com/current-members" target="_blank">Kim's ECL Group<span class="tooltip tooltip-down"><img src="./image/kimlab.png" alt="Kim's ECL Group" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Kim's ECL Group</div><div class="tooltip-description">I'm working in an Environmental Chemistry Lab focused on microplastics and PFAS research in marine ecosystems.</div><div class="tooltip-location">Location: University of Texas at Arlington</div><div class="tooltip-website">Website: kimecl.com</div></div></span></a>, UT Arlington</div>
-        <div class="experience-item">Founder & Chapter President @ <a href="https://www.ecobikeclub.org/" target="_blank">The EcoBike Club<span class="tooltip"><img src="./image/ecobike.png" alt="The EcoBike Club" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The EcoBike Club</div><div class="tooltip-description">Environmental organization combining mtb with community cleanup efforts to connect young men with nature and encourage a love for environmentalism from within.</div><div class="tooltip-location">Location: Dallas, TX</div><div class="tooltip-website">Website: ecobikeclub.org</div></div></span></a></div>
-        <div class="experience-item">Founder & Editor-in-Chief @ <a href="https://www.bethenoble.com/" target="_blank">The Noble<span class="tooltip"><img src="./image/thenoble.png" alt="The Noble" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The Noble</div><div class="tooltip-description">Online newspaper covering philosophy, environmentalism, ethics, and conservation with 12,000+ viewers + 400 email subscribers.</div><div class="tooltip-location">Location: Flower Mound, TX</div><div class="tooltip-website">Website: bethenoble.com</div></div></span></a></div>
+        <div class="experience-item">Research Assistant @ <a href="https://www.kimecl.com/current-members" target="_blank">Kim's ECL Group<span class="tooltip tooltip-down"><img src="./image/kimlab.png" alt="Kim's ECL Group" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Kim's ECL Group</div><div class="tooltip-description">Environmental Chemistry Laboratory focused on microplastics and PFAS research in marine ecosystems.</div><div class="tooltip-location">Location: University of Texas at Arlington</div><div class="tooltip-website">Website: kimecl.com</div></div></span></a>, UT Arlington</div>
+        <div class="experience-item">Founder & Chapter President @ <a href="https://www.ecobikeclub.org/" target="_blank">The EcoBike Club<span class="tooltip"><img src="./image/ecobike.png" alt="The EcoBike Club" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The EcoBike Club</div><div class="tooltip-description">Environmental initiative combining cycling with community cleanup efforts to combat waste disposal issues.</div><div class="tooltip-location">Location: Dallas, TX</div><div class="tooltip-website">Website: ecobikeclub.org</div></div></span></a></div>
+        <div class="experience-item">Founder & Editor-in-Chief @ <a href="https://www.bethenoble.com/" target="_blank">The Noble<span class="tooltip"><img src="./image/thenoble.png" alt="The Noble" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The Noble</div><div class="tooltip-description">Online newspaper covering philosophy, environmentalism, ethics, and conservation with 12,000+ views.</div><div class="tooltip-location">Location: Flower Mound, TX</div><div class="tooltip-website">Website: bethenoble.com</div></div></span></a></div>
         
         <div class="section-title">Previous</div>
-        <div class="experience-item">Ambassador @ <a href="https://ktb.org/" target="_blank">Keep Texas Beautiful<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Keep+Texas+Beautiful" alt="Keep Texas Beautiful" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Keep Texas Beautiful</div><div class="tooltip-description">Statewide nonprofit organization promoting youth environmental action and community beautification across Texas.</div><div class="tooltip-location">Location: Austin, TX</div><div class="tooltip-website">Website: ktb.org</div></div></span></a></div>
+        <div class="experience-item">Ambassador @ <a href="https://ktb.org/" target="_blank">Keep Texas Beautiful<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Keep+Texas+Beautiful" alt="Keep Texas Beautiful" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Keep Texas Beautiful</div><div class="tooltip-description">Statewide nonprofit organization promoting environmental stewardship and community beautification across Texas.</div><div class="tooltip-location">Location: Austin, TX</div><div class="tooltip-website">Website: ktb.org</div></div></span></a></div>
         <div class="experience-item">Exemplary Essay Award Winner @ <a href="https://character.org/" target="_blank">Character.org<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Character.org" alt="Character.org" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Character.org</div><div class="tooltip-description">National organization promoting character education and ethical development in schools and communities.</div><div class="tooltip-location">Location: Washington, DC</div><div class="tooltip-website">Website: character.org</div></div></span></a></div>
         <div class="experience-item">Keep Texas Beautiful Scholarship Recipient</div>
         <div class="experience-item">UIL Ready Writing Essay Award Winner</div>
-        <div class="experience-item">Bayar Fellowship @ <a href="https://bayarfellowship.com/" target="_blank">The Bayar Foundation<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Bayar+Foundation" alt="The Bayar Foundation" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The Bayar Foundation</div><div class="tooltip-description">Competitive summer fellowship program; recieved amazing mentorship from business and law professionals.</div><div class="tooltip-location">Location: Texas</div><div class="tooltip-website">Website: bayarfellowship.com</div></div></span></a></div>
+        <div class="experience-item">Bayar Fellowship @ <a href="https://bayarfellowship.com/" target="_blank">The Bayar Foundation<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Bayar+Foundation" alt="The Bayar Foundation" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The Bayar Foundation</div><div class="tooltip-description">Competitive summer fellowship program providing mentorship from business and law professionals.</div><div class="tooltip-location">Location: Texas</div><div class="tooltip-website">Website: bayarfellowship.com</div></div></span></a></div>
         
         <div class="contact">
             Feel free to reach out at <a href="mailto:jackson.danieljay@gmail.com">jackson.danieljay@gmail.com</a>
