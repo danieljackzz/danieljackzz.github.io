@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,10 +55,81 @@
         a {
             color: #ffffff;
             text-decoration: none;
+            position: relative;
         }
         
         a:hover {
             text-decoration: underline;
+        }
+        
+        .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2a2a2a;
+            color: #ffffff;
+            padding: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 320px;
+            font-size: 0.9em;
+            line-height: 1.4;
+            transition: opacity 0.3s, visibility 0.3s;
+            border: 1px solid #444;
+            overflow: hidden;
+        }
+        
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #2a2a2a transparent transparent transparent;
+        }
+        
+        .tooltip-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .tooltip-content {
+            padding: 15px;
+        }
+        
+        a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        
+        .tooltip-description {
+            margin-bottom: 8px;
+            color: #cccccc;
+        }
+        
+        .tooltip-location {
+            font-style: italic;
+            color: #aaaaaa;
+            margin-bottom: 4px;
+        }
+        
+        .tooltip-website {
+            color: #aaaaaa;
+            font-size: 0.85em;
         }
     </style>
 </head>
@@ -69,16 +139,16 @@
         <div class="degree">Flower Mound High School, TX | Grade: 3.98 </div>
         
         <div class="section-title">Present</div>
-        <div class="experience-item">Research Assistant @ <a href="https://www.kimecl.com/current-members" target="_blank">Kim's ECL Group</a>, UT Arlington</div>
-        <div class="experience-item">Founder & Chapter President @ <a href="https://www.ecobikeclub.org/" target="_blank">The EcoBike Club</a></div>
-        <div class="experience-item">Founder & Editor-in-Chief @ <a href="https://www.bethenoble.com/" target="_blank">The Noble</a></div>
+        <div class="experience-item">Research Assistant @ <a href="https://www.kimecl.com/current-members" target="_blank">Kim's ECL Group<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Kim%27s+ECL+Group" alt="Kim's ECL Group" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Kim's ECL Group</div><div class="tooltip-description">Environmental Chemistry Laboratory focused on microplastics and PFAS research in marine ecosystems.</div><div class="tooltip-location">Location: University of Texas at Arlington</div><div class="tooltip-website">Website: kimecl.com</div></div></span></a>, UT Arlington</div>
+        <div class="experience-item">Founder & Chapter President @ <a href="https://www.ecobikeclub.org/" target="_blank">The EcoBike Club<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=EcoBike+Club" alt="The EcoBike Club" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The EcoBike Club</div><div class="tooltip-description">Environmental initiative combining cycling with community cleanup efforts to combat waste disposal issues.</div><div class="tooltip-location">Location: Dallas, TX</div><div class="tooltip-website">Website: ecobikeclub.org</div></div></span></a></div>
+        <div class="experience-item">Founder & Editor-in-Chief @ <a href="https://www.bethenoble.com/" target="_blank">The Noble<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=The+Noble" alt="The Noble" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The Noble</div><div class="tooltip-description">Online newspaper covering philosophy, environmentalism, ethics, and conservation with 12,000+ views.</div><div class="tooltip-location">Location: Flower Mound, TX</div><div class="tooltip-website">Website: bethenoble.com</div></div></span></a></div>
         
         <div class="section-title">Previous</div>
-        <div class="experience-item">Ambassador @ <a href="https://ktb.org/" target="_blank">Keep Texas Beautiful</a></div>
-        <div class="experience-item">Exemplary Essay Award Winner @ <a href="https://character.org/" target="_blank">Character.org</a></div>
+        <div class="experience-item">Ambassador @ <a href="https://ktb.org/" target="_blank">Keep Texas Beautiful<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Keep+Texas+Beautiful" alt="Keep Texas Beautiful" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Keep Texas Beautiful</div><div class="tooltip-description">Statewide nonprofit organization promoting environmental stewardship and community beautification across Texas.</div><div class="tooltip-location">Location: Austin, TX</div><div class="tooltip-website">Website: ktb.org</div></div></span></a></div>
+        <div class="experience-item">Exemplary Essay Award Winner @ <a href="https://character.org/" target="_blank">Character.org<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Character.org" alt="Character.org" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">Character.org</div><div class="tooltip-description">National organization promoting character education and ethical development in schools and communities.</div><div class="tooltip-location">Location: Washington, DC</div><div class="tooltip-website">Website: character.org</div></div></span></a></div>
         <div class="experience-item">Keep Texas Beautiful Scholarship Recipient</div>
         <div class="experience-item">UIL Ready Writing Essay Award Winner</div>
-        <div class="experience-item">Bayar Fellowship @ <a href="https://bayarfellowship.com/" target="_blank">The Bayar Foundation</a></div>
+        <div class="experience-item">Bayar Fellowship @ <a href="https://bayarfellowship.com/" target="_blank">The Bayar Foundation<span class="tooltip"><img src="https://via.placeholder.com/320x160/1a1a1a/ffffff?text=Bayar+Foundation" alt="The Bayar Foundation" class="tooltip-image"><div class="tooltip-content"><div class="tooltip-title">The Bayar Foundation</div><div class="tooltip-description">Competitive summer fellowship program providing mentorship from business and law professionals.</div><div class="tooltip-location">Location: Texas</div><div class="tooltip-website">Website: bayarfellowship.com</div></div></span></a></div>
         
         <div class="contact">
             Feel free to reach out at <a href="mailto:jackson.danieljay@gmail.com">jackson.danieljay@gmail.com</a>
